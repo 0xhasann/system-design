@@ -1,0 +1,22 @@
+package com.tiny.url_shortner;
+
+public class Base62 {
+
+    private static final String BASE62 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    public static String encode(long value) {
+
+        if (value == 0)
+            return "0";
+        StringBuilder sb = new StringBuilder();
+
+        while (value != 0) {
+
+            sb.append(BASE62.charAt((int) value % 62));
+            value /= 62;
+        }
+
+        return sb.reverse().toString();
+    }
+
+}
