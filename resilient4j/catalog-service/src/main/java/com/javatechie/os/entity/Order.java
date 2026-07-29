@@ -1,0 +1,59 @@
+package com.javatechie.os.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.javatechie.os.repository.OrderRepository;
+
+@Entity
+@Table(name = "ORDERS_TBL")
+@Data
+@AllArgsConstructor
+
+public class Order {
+
+    @Id
+    @GeneratedValue
+    private int id;
+    private String name;
+    private String category;
+    private String color;
+    private double price;
+
+    public Order() {
+
+    }
+
+    public Order(String name, String category, String color, double price) {
+        this.name = name;
+        this.category = category;
+        this.color = color;
+        this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
