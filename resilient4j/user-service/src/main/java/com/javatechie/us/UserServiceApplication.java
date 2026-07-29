@@ -57,10 +57,6 @@ public class UserServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(UserServiceApplication.class, args);
-
-        OrderDTO dto = new OrderDTO();
-        dto.setId(1);
-        dto.setName("Test");
     }
 
     @Bean
