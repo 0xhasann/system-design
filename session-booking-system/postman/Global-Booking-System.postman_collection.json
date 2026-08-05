@@ -1,0 +1,132 @@
+{
+  "info": {
+    "name": "Global Booking System",
+    "_postman_id": "f3d4b54c-1234-5678-9012-booking",
+    "description": "Backend Engineering Assignment APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api"
+    }
+  ],
+  "item": [
+    {
+      "name": "Teacher APIs",
+      "item": [
+        {
+          "name": "Create Offering",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/teachers/offerings",
+              "host": ["{{baseUrl}}"],
+              "path": ["teachers", "offerings"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courseId\": 1,\n  \"teacherId\": 1,\n  \"name\": \"Saturday Batch\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Add Session",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/teachers/sessions",
+              "host": ["{{baseUrl}}"],
+              "path": ["teachers", "sessions"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offeringId\": 1,\n  \"startTime\": \"2026-06-07T18:00:00\",\n  \"endTime\": \"2026-06-07T19:00:00\",\n  \"timezone\": \"Asia/Kolkata\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Teacher Offerings",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/teachers/1/offerings",
+              "host": ["{{baseUrl}}"],
+              "path": ["teachers", "1", "offerings"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Parent APIs",
+      "item": [
+        {
+          "name": "Get Available Offerings",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/parents/offerings?timezone=Asia/Kolkata",
+              "host": ["{{baseUrl}}"],
+              "path": ["parents", "offerings"],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "Asia/Kolkata"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Book Offering",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Idempotency-Key",
+                "value": "BOOKING-001"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/parents/bookings",
+              "host": ["{{baseUrl}}"],
+              "path": ["parents", "bookings"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parentId\": 1,\n  \"offeringId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Parent Bookings",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/parents/1/bookings",
+              "host": ["{{baseUrl}}"],
+              "path": ["parents", "1", "bookings"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
