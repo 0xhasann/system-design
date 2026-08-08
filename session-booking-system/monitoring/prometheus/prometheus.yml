@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  # Prometheus itself
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - host.docker.internal:9090
+
+  # Your Spring Boot application
+  - job_name: session-booking-system
+    metrics_path: /api/actuator/prometheus
+    static_configs:
+      - targets:
+          - host.docker.internal:8080

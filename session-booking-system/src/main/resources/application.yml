@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: session-boking-system
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
+          - prometheus
+
+  otlp:
+    metrics:
+      export:
+        enabled: false
+
+  tracing:
+    sampling:
+      probability: 1.0

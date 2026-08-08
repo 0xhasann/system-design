@@ -1,0 +1,41 @@
+filebeat.inputs:
+  - type: filestream
+    id: session-booking-system
+    enabled: true
+
+    paths:
+      - /logs/session-booking-system.log
+
+    fields:
+      service: session-booking-system
+      environment: local
+
+    fields_under_root: true
+
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: filestream
+    id: session-booking-error
+    enabled: true
+
+    paths:
+      - /logs/error.log
+
+    fields:
+      service: session-booking-system
+      environment: local
+      log_type: error
+
+    fields_under_root: true
+
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+output.logstash:
+  hosts:
+    - "logstash:5044"

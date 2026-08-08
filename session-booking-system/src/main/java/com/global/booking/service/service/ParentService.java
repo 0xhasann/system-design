@@ -1,5 +1,5 @@
 
-package com.global.booking.service.booking.service;
+package com.global.booking.service.service;
 
 import java.util.List;
 

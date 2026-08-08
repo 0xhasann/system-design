@@ -1,4 +1,4 @@
-package com.global.booking.service.booking.exception;
+package com.global.booking.service.exception;
 
 public class DuplicateRequestException
         extends RuntimeException {

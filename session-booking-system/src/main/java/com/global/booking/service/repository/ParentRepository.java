@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 
-import com.global.booking.service.booking.entity.Parent;
+import com.global.booking.service.entity.Parent;
 
 import java.util.Optional;
 

@@ -1,5 +1,5 @@
 
-package com.global.booking.service.booking.entity;
+package com.global.booking.service.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

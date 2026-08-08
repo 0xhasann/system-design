@@ -1,5 +1,5 @@
 
-package com.global.booking.service.booking.serviceimpl;
+package com.global.booking.service.serviceimpl;
 
 import java.time.ZoneId;
 import java.time.ZoneOffset;
@@ -8,15 +8,15 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.global.booking.service.booking.entity.Booking;
-import com.global.booking.service.booking.entity.IdempotencyKey;
-import com.global.booking.service.booking.entity.Offering;
-import com.global.booking.service.booking.entity.Parent;
-import com.global.booking.service.booking.entity.Session;
-import com.global.booking.service.booking.exception.BookingConflictException;
-import com.global.booking.service.booking.exception.DuplicateRequestException;
-import com.global.booking.service.booking.exception.ResourceNotFoundException;
-import com.global.booking.service.booking.service.ParentService;
+import com.global.booking.service.entity.Booking;
+import com.global.booking.service.entity.IdempotencyKey;
+import com.global.booking.service.entity.Offering;
+import com.global.booking.service.entity.Parent;
+import com.global.booking.service.entity.Session;
+import com.global.booking.service.exception.BookingConflictException;
+import com.global.booking.service.exception.DuplicateRequestException;
+import com.global.booking.service.exception.ResourceNotFoundException;
+import com.global.booking.service.service.ParentService;
 import com.global.booking.service.dto.request.BookOfferingRequest;
 import com.global.booking.service.dto.response.BookingResponse;
 import com.global.booking.service.dto.response.OfferingResponse;

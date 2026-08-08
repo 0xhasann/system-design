@@ -1,9 +1,14 @@
 
-package com.global.booking.service.booking.controller;
+package com.global.booking.service.controller;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
-import com.global.booking.service.booking.service.ParentService;
+import com.global.booking.service.service.ParentService;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.global.booking.service.dto.request.BookOfferingRequest;
 import com.global.booking.service.dto.response.ApiResponse;
 
@@ -17,9 +22,15 @@ public class ParentController {
 
         private final ParentService parentService;
 
+        private final ObjectMapper mapper;
+
+        private static final Logger logger = LoggerFactory.getLogger(ParentController.class);
+
         @GetMapping("/offerings")
         public ApiResponse<?> getOfferings(
                         @RequestParam String timezone) {
+
+                logger.info("/offerings Request {}", timezone);
 
                 return ApiResponse.builder()
                                 .success(true)
@@ -34,7 +45,9 @@ public class ParentController {
         @PostMapping("/bookings")
         public ApiResponse<?> bookOffering(
                         @Valid @RequestBody BookOfferingRequest request,
-                        @RequestHeader("Idempotency-Key") String idempotencyKey) {
+                        @RequestHeader("Idempotency-Key") String idempotencyKey) throws JsonProcessingException {
+
+                logger.info("/bookings Request {}", mapper.writeValueAsString(request));
 
                 return ApiResponse.builder()
                                 .success(true)
