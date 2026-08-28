@@ -27,7 +27,6 @@ import com.global.booking.service.repository.BookingRepository;
 import com.global.booking.service.repository.IdempotencyRepository;
 import com.global.booking.service.repository.OfferingRepository;
 import com.global.booking.service.repository.ParentRepository;
-import com.global.booking.service.repository.SessionRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -37,7 +36,6 @@ public class ParentServiceImpl implements ParentService {
 
         private final ParentRepository parentRepository;
         private final OfferingRepository offeringRepository;
-        private final SessionRepository addSessionsessionRepository;
         private final BookingRepository bookingRepository;
         private final IdempotencyRepository idempotencyRepository;
         private final BookingMapper bookingMapper;
